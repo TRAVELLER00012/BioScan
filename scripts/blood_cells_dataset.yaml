@@ -1,0 +1,6 @@
+train: images/blood_cells/images/train
+test: images/blood_cells/images/test
+val: images/blood_cells/images/val
+names:
+  0: RBC
+  1: WBC

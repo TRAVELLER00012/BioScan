@@ -1,0 +1,6 @@
+train: "../images/malarial_cells/images/train"
+test: "../images/malarial_cells/images/test"
+val: "../images/malarial_cells/images/val"
+names:
+  0: Parasitized
+  1: Uninfected

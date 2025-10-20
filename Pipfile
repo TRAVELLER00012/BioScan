@@ -1,0 +1,21 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+tensorflow = "==2.19.0"
+torch = "==2.7.1"
+ultralytics = "==8.3.170"
+opencv-python = "==4.10.0.84"
+pandas = "==2.2.3"
+numpy = "==2.1.1"
+matplotlib = "==3.9.2"
+seaborn = "==0.13.2"
+streamlit = "==1.50.0"
+tqdm = ">=4.66.0"
+
+[dev-packages]
+
+[requires]
+python_version = "3.12"
