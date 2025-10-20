@@ -2,7 +2,6 @@ from ultralytics import YOLO
 import tempfile
 
 model = YOLO("runs/detect/train5/weights/best.pt")
-model.to("cpu")
 
 
 def run_detection(uploaded_file):

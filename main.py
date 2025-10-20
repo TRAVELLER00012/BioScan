@@ -1,6 +1,4 @@
 import streamlit as st
-import os
-os.environ["CUDA_VISIBLE_DEVICES"] = ""
 
 st.set_page_config(layout="wide", page_title="Bio Scan", page_icon="🧬")
 
