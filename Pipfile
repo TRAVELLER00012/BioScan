@@ -16,6 +16,7 @@ streamlit = "==1.50.0"
 tqdm = ">=4.66.0"
 
 [dev-packages]
+ipykernel = "*"
 
 [requires]
 python_version = "3.12"
