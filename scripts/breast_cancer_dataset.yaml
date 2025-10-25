@@ -1,0 +1,7 @@
+train: "../images/breast_cancer/images/train"
+test: "../images/breast_cancer/images/test"
+val: "../images/breast_cancer/images/test"
+names:
+  0: normal
+  1: benign
+  2: malignant
