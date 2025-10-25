@@ -23,7 +23,7 @@ def run_detection(uploaded_file):
     for r in results:
         for box in r.boxes:
             detection_id = box.cls[0]
-            conf_rate = box.conf[0].cpu().item()
+            conf_rate = round(float(box.conf[0].cpu().item()), 4)
             cell_type = "Infected" if detection_id == 0 else "Uninfected"
 
             if cell_type == "Infected":
@@ -53,7 +53,7 @@ def check_malaria_status(infected_count, uninfected_count):
     else:
         status = "Severe / Seek Medical Attention ❌"
 
-    note = "ℹ️ **Disclaimer:** This is an AI-generated result for educational/demo purposes. "\
-           "It does not replace real medical advice or diagnosis."
+    note = "ℹ️ **Disclaimer:** This is an AI-generated result for educational/demo purposes. "
+    "It does not replace real medical advice or diagnosis."
 
     return status, infection_ratio, note

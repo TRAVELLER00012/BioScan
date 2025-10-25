@@ -70,7 +70,7 @@ if len(uploaded_files) > 0:
         data, result = run_detection(file)
         infected_count += len(data["Infected"])
         uninfected_count += len(data["Uninfected"])
-        conf_rate.extend(data["Confidence_rate"])
+        conf_rate.append(data["Confidence_rate"])
         files.extend(data["File Name"])
         results.extend(result)
 
@@ -90,7 +90,7 @@ if len(uploaded_files) > 0:
         "File Name": files,
         "Confidence Rate": conf_rate
     })
-    st.scatter_chart(data=summary_df, x="File Name", y="Confidence Rate")
+    st.line_chart(data=summary_df, x="File Name", y="Confidence Rate")
 
     health_status, infection_percent, disclaimer = check_malaria_status(
         infected_count, uninfected_count)
@@ -137,5 +137,10 @@ st.html(
     '''
 )
 
-if st.button("Previous Page"):
-    st.switch_page("./pages/cells_detection_page.py")
+col1, col2, col3 = st.columns([2, 10, 2])
+with col1:
+    if st.button("Previous Page"):
+        st.switch_page("./pages/cells_detection_page.py")
+with col3:
+    if st.button("Next Page"):
+        st.switch_page("./pages/breast_cancer_detection_page.py")

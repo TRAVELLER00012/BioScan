@@ -1,69 +1,96 @@
 import streamlit as st
 
-st.title("🧬 AI-Powered Blood Cell Analyzer")
-st.write("### Revolutionizing Early Diagnosis through Artificial Intelligence")
+st.set_page_config(page_title="AI-Powered Medical Analyzer",
+                   page_icon="🧬", layout="wide")
 
-# Optional Hero Image (you can replace with a relevant one)
-# st.image("assets/ai_microscope_banner.jpg", use_column_width=True)
+st.title("🧬 AI-Powered Medical Analyzer")
+st.write("### Revolutionizing Early Diagnosis through Artificial Intelligence")
 
 st.markdown("""
 ---
 ### 🌍 Project Overview
-This project is an **AI-driven diagnostic assistant** that leverages **computer vision and deep learning** to analyze microscopic blood images and provide **automated health insights**.  
-By detecting and classifying **Red Blood Cells (RBCs)** and **White Blood Cells (WBCs)**, our system can help in the **early detection of blood-related disorders** and **infection indicators** — all from simple image uploads.
+Welcome to the **AI-Powered Medical Analyzer**, an advanced, multi-diagnostic platform built to assist in **medical image analysis using deep learning**.  
+Our system uses computer vision to automatically detect patterns in medical images — helping identify diseases such as **blood disorders, malaria, and breast cancer** with accuracy and speed.
+
+By leveraging **state-of-the-art YOLOv8 segmentation and classification models**, the platform aims to make diagnostics:
+- Faster  
+- More accessible  
+- Less dependent on manual microscopy  
 
 ---
-### 🎯 Our Aim
-The goal of this project is to make **medical image analysis faster, smarter, and more accessible**.  
-Traditional microscopy requires expert supervision and time-consuming manual counting.  
-With our model, users can simply **upload images of blood samples**, and the system will:
-- Detect individual cells automatically  
-- Count RBCs and WBCs precisely  
-- Analyze their ratio to indicate possible abnormalities  
-- Provide **data-backed health insights** for medical or research use
+
+### 🧩 Available Modules
+
+#### 🔬 **1. Blood Cell Detection**
+- Detects and classifies **Red Blood Cells (RBCs)** and **White Blood Cells (WBCs)**  
+- Computes ratios and abnormalities  
+- Useful for identifying potential **anemia or infection indicators**  
+
+🧠 **How it Works:**
+Upload your microscopic blood images, and the AI automatically identifies and counts RBCs and WBCs using **YOLOv8-based object detection**.
 
 ---
-### ⚙️ How It Works
-1. **Upload Sample Images:** Users upload one or more microscope images of blood samples.  
-2. **AI Detection:** A trained deep learning model (powered by YOLOv8) detects and classifies each cell.  
-3. **Automated Analysis:** The system aggregates counts, computes cell ratios, and gives a realistic diagnostic interpretation.  
-4. **Insight Generation:** Results are displayed visually and numerically, helping users identify potential imbalances instantly.
+
+#### 🦠 **2. Malarial Cell Detection**
+- Detects **infected vs. uninfected blood cells**
+- Helps in **early malaria diagnosis**
+- Uses **CNN-based feature extraction** for precise identification
+
+💡 **Usage:**
+Upload blood smear images, and the AI highlights infected cells and gives a percentage of infection spread.
 
 ---
-### 💡 What Problems This Solves
-- ✅ Eliminates **manual counting errors**
-- ✅ Speeds up **diagnostic workflows**
-- ✅ Makes **blood analysis accessible** in low-resource areas
-- ✅ Offers a **learning platform** for students and researchers studying hematology and AI
+
+#### 🎗️ **3. Breast Cancer Cell Detection**
+- Classifies images as **Normal**, **Benign**, or **Malignant**
+- Uses **YOLOv8s segmentation** to identify cancerous tissue regions  
+- Generates a chart showing the proportion of each type in your dataset  
+
+📘 **Definitions:**
+- **Normal:** Healthy breast tissue cells  
+- **Benign:** Non-cancerous, but possibly abnormal cell growth  
+- **Malignant:** Cancerous cells that can spread and require medical attention  
+
+⚠️ **Disclaimer:**  
+This module is **AI-generated and research-based**, and does **not replace professional medical diagnosis**.  
+It is meant for **educational and experimental** purposes only.
 
 ---
-### 🧠 Behind the Technology
-- **Model Used:** YOLOv8-based detection model for RBC and WBC classification  
-- **Frameworks:** Python, OpenCV, PyTorch, Streamlit  
-- **Core Features:**
-    - Multi-image processing  
-    - Cell detection & ratio calculation  
-    - Real-time visualization of results  
-    - Health indicator summary  
+
+### ⚙️ Under the Hood
+- **Core Models:** YOLOv8, CNN-based classifiers  
+- **Frameworks:** PyTorch, OpenCV, Streamlit  
+- **Pipeline:**
+  1. Upload → 2. AI Detection → 3. Visualization → 4. Statistical Report  
 
 ---
+
 ### 🚀 Vision
-We envision expanding this platform beyond blood samples — into a **multi-diagnostic AI platform** capable of detecting **malaria, anemia, and other cellular disorders** using the same unified pipeline.  
-In the future, we aim to:
-- Integrate **disease prediction** layers (e.g., malaria detection)  
-- Build a **mobile-ready version** for rapid testing  
-- Link with **IoT-based microscope devices** for automated data collection
+This project represents a step toward a **unified AI diagnostic system**, enabling:
+- Multi-disease detection from a single interface  
+- Integration with **IoT microscope devices**  
+- Support for **mobile and offline analysis**
 
 ---
+
 ### 👩‍🔬 In Summary
-This project stands at the intersection of **healthcare and artificial intelligence**.  
-It represents how a student-built AI tool can contribute toward a **faster, smarter, and more accessible medical future**.
+The **AI-Powered Medical Analyzer** is a research initiative combining:
+- Biomedical imaging  
+- Artificial intelligence  
+- Modern web technologies  
+
+It’s a student-built effort to **bridge technology and healthcare** — showing how AI can empower doctors, students, and researchers alike.
 """)
 
-st.info("💡 Try it out! Navigate to the **Detection** page to upload sample images and see the AI in action.")
+st.info("💡 Try any module below to experience AI-assisted medical image detection.")
 
-
-col1, col2, col3 = st.columns([2, 10, 1.05])
-with col3:
-    if st.button("Next Page"):
+col1, col2, col3 = st.columns([1, 1, 1])
+with col1:
+    if st.button("🩸 Blood Cell Detection", use_container_width=True):
         st.switch_page("./pages/cells_detection_page.py")
+with col2:
+    if st.button("🦠 Malarial Detection", use_container_width=True):
+        st.switch_page("./pages/malarial_detection_page.py")
+with col3:
+    if st.button("🎗️ Breast Cancer Detection", use_container_width=True):
+        st.switch_page("./pages/breast_cancer_detection_page.py")
