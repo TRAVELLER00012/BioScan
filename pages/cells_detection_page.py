@@ -145,10 +145,10 @@ st.html(
 )
 
 
-col1, col2, col3 = st.columns([2, 10, 1.05])
+col1, col2 = st.columns([1, 1])
 with col1:
-    if st.button("Previous Page"):
+    if st.button("Previous Page", width="stretch"):
         st.switch_page("./pages/homepage.py")
-with col3:
-    if st.button("Next Page"):
+with col2:
+    if st.button("Next Page", width="stretch"):
         st.switch_page("./pages/malarial_detection_page.py")

@@ -157,5 +157,7 @@ hr {
 <hr>
 ''')
 
-if st.button("Previous Page"):
-    st.switch_page("./pages/malarial_detection_page.py")
+col1, col2 = st.columns([1, 1])
+with col1:
+    if st.button("Previous Page", width="stretch"):
+        st.switch_page("./pages/malarial_detection_page.py")
